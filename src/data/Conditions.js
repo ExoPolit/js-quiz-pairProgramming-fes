@@ -92,5 +92,5 @@ const ConditionalQuestions = [
     }
   ];
   
-  export default ConditionalQuestions ;
+  export default ConditionalQuestions;
   
