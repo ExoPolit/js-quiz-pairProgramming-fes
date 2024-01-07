@@ -1,4 +1,4 @@
-const questions = [
+const questionsOOP = [
   {
     question: "What is Object-Oriented Programming (OOP) in JavaScript??",
     answers: [
@@ -103,4 +103,4 @@ const questions = [
   },
 ];
 
-export default questions;
+export default questionsOOP;
