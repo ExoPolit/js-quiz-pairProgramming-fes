@@ -7,13 +7,11 @@ const Nav = () => {
         <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-blue">
             <div className="container">
-                <a className="navbar-brand" href="#">
-                    Logo
-                </a>
-                <h1 className="navbar-text mx-auto">Title</h1>
+                <img src="../assests/Banano.svg" alt="banano" width={100} height={100} />
+                <h1 className="">BananaScript</h1>
                 <div className="ml-auto">
-                    <Button variant="outline-primary" size='lg'>LogIn</Button>
-                    <Button variant="outline-primary" size='sm'>SignUp</Button>
+                    <Button variant="outline-primary" size='md'>LogIn</Button>
+                    <Button variant="outline-primary" size='md'>SignUp</Button>
                     
                 </div>
             </div>
