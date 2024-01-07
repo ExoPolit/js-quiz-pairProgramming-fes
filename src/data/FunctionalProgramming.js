@@ -1,4 +1,4 @@
-const questions = [
+const functionalProgramming = [
     {
         question: "What is the primary concept in Functional Programming?",
         answers:[
@@ -50,3 +50,5 @@ const questions = [
     ]
 },
 ]
+
+export default functionalProgramming;
