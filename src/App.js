@@ -2,13 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import Home from './pages/Home';
 
 
 function App() {
   return (
     <>
-   <h1>Hello World</h1>
-  
+  <Home/>
    </>
   );
 }
