@@ -1,14 +1,13 @@
 import React from 'react';
 import Nav from '../components/nav';
-
+import Footer from '../components/footer';
+import 'bootstrap/dist/css/bootstrap.min.css';
 const Home = () => {
     return (
-        <div>
+        <>
             <Nav />
-            <div className="container">
-                <h1 className="text-center">Home</h1>
-            </div>
-        </div>
+              <Footer />
+       </>
     );
 }
 

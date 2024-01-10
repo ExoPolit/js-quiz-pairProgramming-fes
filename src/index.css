@@ -1,0 +1,16 @@
+:root{
+    --main-bg: #FFFD98;
+--secondary-bg:#23395B;
+--green-bg:#59C9A5;
+--red-bg: #D81E5B;
+--banana-green-bg: #B9E3C6;
+
+--font-wt:#fff;
+--font-bl:#000;
+--counter-gr:#59C9A5;
+--counter-rd:#D81E5B;
+--font-size-sm: 1rem; 
+--font-size-md:1.6rem;
+--font-size-lg: 1.8rem;
+--font-size-xl: 2.4rem;
+}
