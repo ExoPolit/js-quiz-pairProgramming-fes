@@ -1,1 +1,18 @@
+#btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+}
+
+#btn #login-btn:hover{
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.1);
+}
+
+#btn #signout-btn:hover{
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.1);
+}
 
