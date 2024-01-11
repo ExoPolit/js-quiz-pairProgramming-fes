@@ -14,8 +14,8 @@ const Nav = () => {
                 <img src={Banano} alt="banano" width={100} height={100} />
                 <h1 className="text-white">BananaScript</h1>
                 <div className="ml-auto">
-                    <Button variant="outline-none" style={{backgroundColor: 'var(--red-bg)', color: 'var(--font-wt)'}} size='sm' className='m-2 overflow-hidden'>LogIn</Button>
-                    <Button variant="outline-none" style={{backgroundColor: 'var(--red-bg)', color: 'var(--font-wt)'}} size='sm'>SignUp</Button>
+                    <Button variant="outline-none" style={{backgroundColor: 'var(--red-bg)', color: 'var(--font-wt)', fontWeight: '600'}} size='md' className='m-2 overflow-hidden'>LogIn</Button>
+                    <Button variant="outline-none" style={{backgroundColor: 'var(--red-bg)', color: 'var(--font-wt)', fontWeight: '600'}} size='md'>SignUp</Button>
                     
                 </div>
             </div>
