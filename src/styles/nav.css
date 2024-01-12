@@ -1,4 +1,4 @@
-#btn{
+#btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,29 +6,29 @@
     gap: 1rem;
 }
 
-#btn #login-btn:hover{
+#btn #login-btn:hover {
     transition: all 0.5s ease-in-out;
     transform: scale(1.1);
 }
 
-#btn #signout-btn:hover{
+#btn #signout-btn:hover {
     transition: all 0.5s ease-in-out;
     transform: scale(1.1);
 }
-#img-wrapper{
+
+#img-wrapper {
 
     margin-bottom: 0;
     position: relative;
 }
-#img-wrapper::after{
+
+#img-wrapper::after {
     content: 'BANANA';
     position: absolute;
     top: 10px;
     left: 6rem;
-    font-size: 1.5rem;  
+    font-size: 1.5rem;
     color: var(--red-bg);
     font-weight: 700;
     text-shadow: 2px 2px 5px #000;
-   
 }
-

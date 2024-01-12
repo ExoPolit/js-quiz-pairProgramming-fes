@@ -1,9 +1,9 @@
-import React from "react";
 import '../styles/footer.css';
-const Footer = () => {
 
+const Footer = () => {
     return (
         <>
+
       <footer className="navbar navbar-expand-lg navbar-light">
             <div className="container-fluid  fixed-bottom" style={{backgroundColor: 'var(--secondary-bg)', height: 100, justifyContent: "center", }}>
                 <div className="ml-auto" id="footer-content">

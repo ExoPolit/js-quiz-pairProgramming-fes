@@ -1,7 +1,6 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/nav.css';
+
+import { Button } from 'react-bootstrap';
 
 import Banano from "../assests/Banano.svg"
 
@@ -23,9 +22,6 @@ const Nav = () => {
             </div>
         </nav>
 
-       
-
-        
         </>
     );
     
