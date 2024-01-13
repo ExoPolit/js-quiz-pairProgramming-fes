@@ -1,7 +1,6 @@
 import '../styles/nav.css';
 import Banano from "../assests/Banano.svg"
-import RegisterBtn from '../auth/RegisterButton';
-import LoginBtn from '../auth/LoginButton';
+import AuthButtons from '../auth/AuthButtons';
 
 const Nav = () => {
     return (
@@ -14,8 +13,7 @@ const Nav = () => {
                 </figure>
                 <h1 className="text-white">BananaScript</h1>
                 <div className="ml-auto" id="btn">
-                    <LoginBtn/>
-                    <RegisterBtn/>
+                    <AuthButtons/>
                 </div>
             </div>
         </nav>
