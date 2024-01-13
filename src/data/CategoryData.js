@@ -1,0 +1,30 @@
+const categories = [
+    'Arrays',
+    'BOM',
+    'Classes',
+    'Conditions',
+    'Data Types',
+    'ES6',
+    'Events',
+    'Functions',
+    'Loops',
+    'Maths',
+    'Method',
+    'IfElseIf',
+    'Objects',
+    'Operators',
+    'Scope',
+    'RegEx',
+    'Oop',
+    'Switch',
+    'EventLoop',
+    'Functional Programming',
+    'New Constructor',
+    'Precedence',
+    'Recursion',
+    'Switch',
+    'Sytax',
+    'Variables'
+]
+
+export default categories;
