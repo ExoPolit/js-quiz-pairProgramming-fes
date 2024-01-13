@@ -17,9 +17,9 @@ const Home = () => {
     {!show && <Nav/>}
       <div
         style={{
-            overflow: 'hidden',
-          maxHeight: show ? "100vh" : "0",
-          transition: "max-height 1.5s",
+            overflow: 'auto',
+          height: show ? "100vh" : "0",
+          transition: "height 1.5s",
         }}
         >
         {show && <Categorys />}
