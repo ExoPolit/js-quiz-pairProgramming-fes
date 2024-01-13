@@ -25,7 +25,7 @@ function LoginBtn() {
         size="md"
         id="login-btn"
       >
-        Login with Email
+        Login
       </Button>
       <LoginModal show={showLoginModal} handleClose={handleCloseLoginModal} />
     </div>

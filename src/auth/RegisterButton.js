@@ -32,7 +32,7 @@ const RegisterBtn = () => {
       size="md"
       id="signout-btn"
     >
-      Register with Email
+      Register
     </Button>
     <RegisterModal show={showRegisterModal} handleClose={handleCloseRegisterModal} />   
     </div>
