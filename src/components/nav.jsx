@@ -1,7 +1,7 @@
 import '../styles/nav.css';
 
 import { Button } from 'react-bootstrap';
-
+import Register from '../auth/login';
 import Banano from "../assests/Banano.svg"
 
 const Nav = () => {
@@ -15,7 +15,7 @@ const Nav = () => {
                 </figure>
                 <h1 className="text-white">BananaScript</h1>
                 <div className="ml-auto" id="btn">
-                    <Button variant="outline-none" style={{backgroundColor: 'var(--red-bg)', color: 'var(--font-wt)', fontWeight: '600'}} size='md' id="login-btn">LogIn</Button>
+                    <Button variant="outline-none"  style={{backgroundColor: 'var(--red-bg)', color: 'var(--font-wt)', fontWeight: '600'}} size='md' id="login-btn">LogIn</Button>
                     <Button variant="outline-none" style={{backgroundColor: 'var(--red-bg)', color: 'var(--font-wt)', fontWeight: '600'}} size='md' id="signout-btn">SignUp</Button>
                     
                 </div>
