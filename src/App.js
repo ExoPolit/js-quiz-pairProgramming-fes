@@ -8,7 +8,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/quz" element={<QuizModule />} />
+        <Route path="/quiz/:cat" element={<QuizModule />} />
       </Routes>
     </Router >
   );

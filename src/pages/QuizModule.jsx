@@ -1,7 +1,8 @@
+import { useParams } from "react-router-dom";
 
 const QuizModule = () => {
-  return (
-    <div>QuizModule</div>
-  )
-}
-export default QuizModule
+	const { cat } = useParams();
+  
+	return <div>{cat}</div>;
+};
+export default QuizModule;
