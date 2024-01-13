@@ -6,6 +6,7 @@ import categories from "../data/CategoryData";
 const QuizModule = () => {
 	const { cat } = useParams();
 	const [questions, setQuestions] = useState([]);
+	const [current, setCurrent] = useState(0);
 
 	useEffect(() => {
 		const selectedCategory = categories.find(
@@ -15,16 +16,14 @@ const QuizModule = () => {
 		if (selectedCategory) {
 			setQuestions(selectedCategory[cat]);
 		}
-
-		console.log(questions);
 	}, [cat]);
 
 	return (
 		<>
 			<h1>Category: {cat}</h1>
-			{questions.map((question, index) => (
+			{questions.slice(current, current + 1).map((question, index) => (
 				<div key={index}>
-					<h2>{`Q${index + 1}: ${question.question}`}</h2>
+					<h2>{`Q${index + (current + 1)}: ${question.question}`}</h2>
 					{question.answers.map((answer, ansIndex) => (
 						<p key={ansIndex}>
 							{Object.keys(answer)[0]}. {answer[Object.keys(answer)[0]]}
@@ -32,6 +31,7 @@ const QuizModule = () => {
 					))}
 				</div>
 			))}
+			<button onClick={() => setCurrent(current + 1)}>Next</button>
 		</>
 	);
 };
