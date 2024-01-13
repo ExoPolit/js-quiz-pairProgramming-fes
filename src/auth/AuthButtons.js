@@ -1,4 +1,5 @@
-// AuthButtons.js
+// LOGIN, REGISTER, LOGOUT BUTTONS
+
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import LoginModal from './LoginModule';
