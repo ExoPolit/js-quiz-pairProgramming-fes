@@ -1,3 +1,5 @@
+import "../../src/styles/QuizModule.css";
+
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -37,11 +39,6 @@ const QuizModule = () => {
 	};
 
 	const btnSize = "md";
-	const btnStyle = {
-		backgroundColor: "var(--red-bg)",
-		color: "var(--font-wt)",
-		fontWeight: "600",
-	};
 
 	return (
 		<>
@@ -50,27 +47,46 @@ const QuizModule = () => {
 				<div key={index}>
 					<h2>{`Q${index + (current + 1)}: ${question.question}`}</h2>
 					{question.answers.map((answer, ansIndex) => (
-						<button className="d-block w-100 text-start" key={ansIndex}>
+						<button
+							key={ansIndex}
+							className="d-block w-100 text-start btn-answers"
+							variant="outline-none">
 							{Object.keys(answer)[0]}. {answer[Object.keys(answer)[0]]}
 						</button>
 					))}
 				</div>
 			))}
 			{current === 0 ? (
-				<Button className="col-12" onClick={handleNext} variant="outline-none" size={btnSize} style={btnStyle}>
+				<Button
+					className="col-12 back-next"
+					variant="outline-none"
+					onClick={handleNext}
+					size={btnSize}>
 					Next
 				</Button>
 			) : current > 0 && current < questions.length - 1 ? (
 				<>
-					<Button className="col-6" onClick={handleBack} variant="outline-none" size={btnSize} style={btnStyle}>
+					<Button
+						className="col-6 back-next"
+						variant="outline-none"
+						onClick={handleBack}
+						size={btnSize}>
 						Back
 					</Button>
-					<Button className="col-6" onClick={handleNext} variant="outline-none" size={btnSize} style={btnStyle}>
+					<Button
+						className="col-6 back-next"
+						variant="outline-none"
+						onClick={handleNext}
+						size={btnSize}>
 						Next
 					</Button>
 				</>
 			) : (
-				<Button  className="col-12"onClick={handleBack} variant="outline-none" size={btnSize} style={btnStyle}>
+				<Button
+					className="col-12 back-next"
+					variant="outline-none"
+					onClick={handleBack}
+					size={btnSize}>
 					Back
 				</Button>
 			)}
