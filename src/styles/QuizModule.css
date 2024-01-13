@@ -1,4 +1,5 @@
 .btn-answers {
+  /* display: flex; */
   background-color: var(--secondary-bg);
   color: white;
   font-size: var(--font-size-md);
@@ -21,4 +22,14 @@
 .back-next:hover {
   background-color: var(--banana-green-bg);
   color: var(--font-wt);
+}
+
+.option-left {
+  display: inline;
+}
+
+.option-right {
+  display: inline;
+  margin-left: 1%;
+  /* margin: 0 auto; */
 }

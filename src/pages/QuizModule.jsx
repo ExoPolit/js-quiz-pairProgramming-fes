@@ -49,9 +49,10 @@ const QuizModule = () => {
 					{question.answers.map((answer, ansIndex) => (
 						<button
 							key={ansIndex}
-							className="d-block w-100 text-start btn-answers"
+							className=" w-100 text-start btn-answers"
 							variant="outline-none">
-							{Object.keys(answer)[0]}. {answer[Object.keys(answer)[0]]}
+							<p className="option-left">{Object.keys(answer)[0]}.</p>{" "}
+							<p className="option-right">{answer[Object.keys(answer)[0]]}</p>
 						</button>
 					))}
 				</div>
