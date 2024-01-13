@@ -5,8 +5,8 @@ import categories from '../data/CategoryData';
 const Categorys = () => {
   
   return (
-    <div style={{backgroundColor: 'var(--main-bg)', padding: '50px'}}>
-    <div className="container-lg min-height-100">
+    <div style={{backgroundColor: 'var(--main-bg)', padding: '25px'}}>
+    <div className="container-lg">
         <div className="row">
             {categories.map((categories, index) => (
             <div key={index} className="col-lg-3 col-md-4 col-md-6 mb-4">
