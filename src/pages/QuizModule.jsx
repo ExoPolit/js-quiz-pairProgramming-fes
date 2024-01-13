@@ -5,24 +5,33 @@ import categories from "../data/CategoryData";
 
 const QuizModule = () => {
 	const { cat } = useParams();
-	const [category, setCategory] = useState([]);
-
+	const [questions, setQuestions] = useState([]);
 
 	useEffect(() => {
-		setCategory(categories);
-		console.log(category);
-		console.log(categories);
-		console.log(categories.cat);
-	}, []);
+		const selectedCategory = categories.find(
+			(category) => Object.keys(category)[0] === cat,
+		);
+
+		if (selectedCategory) {
+			setQuestions(selectedCategory[cat]);
+		}
+
+		console.log(questions);
+	}, [cat]);
 
 	return (
 		<>
 			<h1>Category: {cat}</h1>
-			<h2>Q1: {}</h2>
-			<p>A. {}</p>
-			<p>B. {}</p>
-			<p>C. {}</p>
-			<p>D. {}</p>
+			{questions.map((question, index) => (
+				<div key={index}>
+					<h2>{`Q${index + 1}: ${question.question}`}</h2>
+					{question.answers.map((answer, ansIndex) => (
+						<p key={ansIndex}>
+							{Object.keys(answer)[0]}. {answer[Object.keys(answer)[0]]}
+						</p>
+					))}
+				</div>
+			))}
 		</>
 	);
 };
