@@ -6,6 +6,7 @@ import RegisterModal from './RegisterModule';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase/init';
 import { signOut } from 'firebase/auth';
+import '../styles/AuthButtons.css'
 
 const AuthButtons = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -33,9 +34,10 @@ const AuthButtons = () => {
   };
 
   return (
-    <div>
+    <div id="auth-btn">
       {!user && (
         <>
+        
           <Button
             variant="outline-none"
             onClick={handleShowLoginModal}
@@ -62,6 +64,7 @@ const AuthButtons = () => {
           >
             Register
           </Button>
+         
         </>
       )}
 
