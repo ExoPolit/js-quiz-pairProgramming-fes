@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 import categories from "../data/CategoryData";
 
+import { Button } from "react-bootstrap";
+
 const QuizModule = () => {
 	const { cat } = useParams();
 	const [questions, setQuestions] = useState([]);
@@ -34,6 +36,13 @@ const QuizModule = () => {
 		setCurrent(current - 1);
 	};
 
+	const btnSize = "md";
+	const btnStyle = {
+		backgroundColor: "var(--red-bg)",
+		color: "var(--font-wt)",
+		fontWeight: "600",
+	};
+
 	return (
 		<>
 			<h1>Category: {cat}</h1>
@@ -48,14 +57,22 @@ const QuizModule = () => {
 				</div>
 			))}
 			{current === 0 ? (
-				<button onClick={handleNext}>Next</button>
+				<Button className="col-12" onClick={handleNext} variant="outline-none" size={btnSize} style={btnStyle}>
+					Next
+				</Button>
 			) : current > 0 && current < questions.length - 1 ? (
 				<>
-					<button onClick={handleBack}>Back</button>
-					<button onClick={handleNext}>Next</button>
+					<Button className="col-6" onClick={handleBack} variant="outline-none" size={btnSize} style={btnStyle}>
+						Back
+					</Button>
+					<Button className="col-6" onClick={handleNext} variant="outline-none" size={btnSize} style={btnStyle}>
+						Next
+					</Button>
 				</>
 			) : (
-				<button onClick={handleBack}>Back</button>
+				<Button  className="col-12"onClick={handleBack} variant="outline-none" size={btnSize} style={btnStyle}>
+					Back
+				</Button>
 			)}
 		</>
 	);

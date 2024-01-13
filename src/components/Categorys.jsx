@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import categories from "../data/CategoryData";
 
 const Categorys = () => {
-const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	return (
 		<div style={{ backgroundColor: "var(--main-bg)", padding: "25px" }}>
@@ -27,7 +27,9 @@ const navigate = useNavigate();
 										}}
 										size="md"
 										id="signout-btn"
-                                        onClick={() => navigate(`/quiz/${Object.keys(categories)}`)}>
+										onClick={() =>
+											navigate(`/quiz/${Object.keys(categories)}`)
+										}>
 										Start
 									</Button>
 								</div>
