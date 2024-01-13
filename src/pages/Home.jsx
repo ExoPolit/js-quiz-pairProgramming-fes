@@ -21,7 +21,7 @@ const Home = () => {
           maxHeight: show ? "100vh" : "0",
           transition: "max-height 1.5s",
         }}
-      >
+        >
         {show && <Categorys />}
       </div>
       {!show && <Footer />}
