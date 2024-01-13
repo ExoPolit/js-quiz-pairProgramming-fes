@@ -1,10 +1,16 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+
 import Home from './pages/Home';
+import QuizModule from "./pages/QuizModule.jsx"
 
 function App() {
   return (
-    <>
-      <Home />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/quz" element={<QuizModule />} />
+      </Routes>
+    </Router >
   );
 }
 
