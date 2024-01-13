@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import { createUserWithEmailAndPassword } from "firebase/auth"; 
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"; 
 import { auth } from "../firebase/init"; 
+
+
 const RegisterModal = ({ show, handleClose }) => {
   const [user, setUser] = useState({});
   const [formData, setFormData] = useState({
@@ -22,6 +24,10 @@ const RegisterModal = ({ show, handleClose }) => {
         formData.email,
         formData.password
       );
+
+      // Set display name
+      await updateProfile(user, { displayName: formData.name });
+
       console.log(user);
       setUser(user);
 
@@ -30,6 +36,17 @@ const RegisterModal = ({ show, handleClose }) => {
     }
   };
 
+  const setDisplayName = async (user, displayName) => {
+    try {
+      await updateProfile(user, {
+        displayName: displayName,
+
+      });
+    }
+    catch (error) {
+      console.log(error);
+    };
+  }
 
   return (
     <Modal show={show} onHide={handleClose}>

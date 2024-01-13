@@ -1,6 +1,6 @@
 // LOGIN, REGISTER, LOGOUT BUTTONS
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import LoginModal from './LoginModule';
 import RegisterModal from './RegisterModule';
@@ -12,7 +12,16 @@ import '../styles/AuthButtons.css'
 const AuthButtons = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
+  const [displayName, setDisplayName] = useState('');
+
+  useEffect(() => {
+    if (user) {
+      setDisplayName(user.displayName);
+    } else {
+      setDisplayName('');
+    }
+  })
 
   const handleShowLoginModal = () => {
     setShowLoginModal(true);
@@ -36,7 +45,7 @@ const AuthButtons = () => {
 
   return (
     <div id="auth-btn">
-      {!user && (
+      {!loading &&!user && (
         <>
         
           <Button
@@ -69,8 +78,9 @@ const AuthButtons = () => {
         </>
       )}
 
-      {user && (
+      {!loading && user && (
         <>
+        
           <Button
             variant="outline-none"
             onClick={handleLogout}

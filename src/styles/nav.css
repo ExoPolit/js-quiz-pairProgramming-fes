@@ -24,8 +24,9 @@
    
 }
 
-#img-wrapper::after {
-    content: 'Hello, User';
+
+.custom-after::after {
+    content: '';
     position: absolute;
     top: 10px;
     left: 6rem;
@@ -34,4 +35,4 @@
     font-weight: 700;
     text-shadow: 2px 2px 5px #000;
     overflow: hidden;
-}
+  }
