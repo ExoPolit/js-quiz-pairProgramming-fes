@@ -16,7 +16,23 @@ const QuizModule = () => {
 		if (selectedCategory) {
 			setQuestions(selectedCategory[cat]);
 		}
+
+		const savedAnswerIndex = localStorage.getItem(`currentAnswerIndex-${cat}`);
+		if (savedAnswerIndex) {
+			setCurrent(parseInt(savedAnswerIndex, 10));
+		}
 	}, [cat]);
+
+	const handleNext = () => {
+		localStorage.setItem(`currentAnswerIndex-${cat}`, current + 1);
+
+		setCurrent(current + 1);
+	};
+	const handleBack = () => {
+		localStorage.setItem(`currentAnswerIndex-${cat}`, current - 1);
+
+		setCurrent(current - 1);
+	};
 
 	return (
 		<>
@@ -25,14 +41,24 @@ const QuizModule = () => {
 				<div key={index}>
 					<h2>{`Q${index + (current + 1)}: ${question.question}`}</h2>
 					{question.answers.map((answer, ansIndex) => (
-						<p key={ansIndex}>
+						<button className="d-block w-100 text-start" key={ansIndex}>
 							{Object.keys(answer)[0]}. {answer[Object.keys(answer)[0]]}
-						</p>
+						</button>
 					))}
 				</div>
 			))}
-			<button onClick={() => setCurrent(current + 1)}>Next</button>
+			{current === 0 ? (
+				<button onClick={handleNext}>Next</button>
+			) : current > 0 && current < questions.length - 1 ? (
+				<>
+					<button onClick={handleBack}>Back</button>
+					<button onClick={handleNext}>Next</button>
+				</>
+			) : (
+				<button onClick={handleBack}>Back</button>
+			)}
 		</>
 	);
 };
+
 export default QuizModule;
