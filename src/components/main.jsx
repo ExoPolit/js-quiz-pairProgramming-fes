@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const MainModule = ({toggleCategories}) => {
  const [isVisible, setIsVisible] = useState(false);
+ const [selectedQuestions, setSelectedQuestions] = useState([]);
  const navigate = useNavigate();
 
  useEffect(() => {
@@ -16,7 +17,9 @@ const MainModule = ({toggleCategories}) => {
     }, []);
 
  
-
+const handleClassicButtonClick = () => {
+    navigate("/classic");
+};
 
 
   return (
@@ -43,7 +46,8 @@ const MainModule = ({toggleCategories}) => {
             
             <Button className="p-2 main-btn" style={{fontSize:'var(--font-size-md)', width:'10rem', backgroundColor: 'var(--red-bg)',
               color: 'var(--font-wt)',
-              fontWeight: '600',}} > Classic</Button>
+              fontWeight: '600',}}
+              onClick={handleClassicButtonClick} > Classic</Button>
           </div>
           <div className="col-6">
             <Button className="p-2 main-btn" style={{fontSize:'var(--font-size-md)', width:'10rem', backgroundColor: 'var(--red-bg)',

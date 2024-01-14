@@ -10,12 +10,21 @@ import { Button } from "react-bootstrap";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 
-const QuizModule = () => {
+const QuizModule = ({selectedQuestions}) => {
 	const { cat } = useParams();
 	const [questions, setQuestions] = useState([]);
 	const [current, setCurrent] = useState(0);
 	const [score, setScore] = useState(0);
 	const [answerSelected, setAnswerSelected] = useState(false);
+	const [classicQuestions, setClassicQuestions] = useState([]);
+
+	useEffect(() => {
+		setClassicQuestions(selectedQuestions);
+		const savedAnswerIndex = localStorage.getItem(`currentAnswerIndex-${cat}`);
+		if(savedAnswerIndex){
+			setCurrent(parseInt(savedAnswerIndex, 10));
+		}
+	}, [selectedQuestions]);
 
 	useEffect(() => {
 		const selectedCategory = categories.find(
