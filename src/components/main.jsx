@@ -34,22 +34,22 @@ const MainModule = ({toggleCategories}) => {
       >
         <h1>Modes</h1>
         <div className="row">
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center align-items-center">
         <div className="col-4">
-            <Button className="p-2" onClick={toggleCategories}> Classic Mode </Button>
+            <Button className="p-2" style={{fontSize:'var(--font-size-md)', width:'10rem'}} onClick={toggleCategories}> Classic</Button>
           </div>
           <div className="col-4">
-            <Button className="p-2" onClick={toggleCategories}> Practice Mode </Button>
+            <Button className="p-2" style={{fontSize:'var(--font-size-md)', width:'10rem'}} onClick={toggleCategories}> Practice</Button>
           </div>
           </div>
         </div>
         <div className="row">
-        <div className="d-flex justify-content-center">
-          <div className="col-4">
-            <Button className="p-2" onClick={toggleCategories}> Practice Mode </Button>
+        <div className="d-flex justify-content-center align-items-center">
+          <div className="col-4 ">
+            <Button className="p-2" style={{fontSize:'var(--font-size-md)', width:'10rem'}} onClick={toggleCategories}> Timed</Button>
           </div>
           <div className="col-4">
-            <Button className="p-2" onClick={toggleCategories}> Practice Mode </Button>
+            <Button className="p-2" style={{fontSize:'var(--font-size-md)', width:'10rem'}} onClick={toggleCategories}> Hard</Button>
           </div>
         </div>
         </div>
