@@ -1,10 +1,21 @@
+import { useEffect, useState } from 'react';
 import '../styles/footer.css';
 
 const Footer = () => {
-    return (
-        <>
+    const [isVisible, setIsVisible] = useState(false);
 
-      <footer className="navbar navbar-expand-lg navbar-light">
+useEffect(() => {
+    setTimeout(() => {
+      setIsVisible(true);
+    }, 300);
+
+    return () => clearTimeout();
+    }, []);
+
+    return (
+      
+<div className={`nav-container ${isVisible ? "slide-in" : ""}`}>
+      <footer className="navbar navbar-expand-lg navbar-light" >
             <div className="container-fluid  fixed-bottom" style={{backgroundColor: 'var(--secondary-bg)', height: 100, justifyContent: "center", }}>
                 <div className="ml-auto" id="footer-content">
                     <a href="#" className="text-white m-4 "  style={{fontSize:'var(--font-size-md)', }}>About</a>
@@ -12,8 +23,9 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
+        </div>
 
-        </>
+        
     )
 }
 

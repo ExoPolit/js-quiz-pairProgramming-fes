@@ -1,3 +1,13 @@
+.nav-container{
+    position: relative;
+    transform: translateX(100%);
+}
+.nav-container.slide-in{
+    transform: translateX(0);
+    transition: transform 0.5s ease-in-out;
+}
+
+
 #btn {
     display: flex;
     justify-content: center;
