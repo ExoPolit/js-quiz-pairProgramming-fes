@@ -8,8 +8,16 @@ const Categorys = () => {
 
 	return (
 		<div style={{ backgroundColor: "var(--main-bg)", padding: "25px" }}>
+			
 			<div className="container-lg">
 				<div className="row">
+					<a href="/" className="mb-4" style={{fontSize: 'var(--font-size-md)',
+					textDecoration: 'none',
+				transition: 'color 0.3s'}}
+				onMouseOver={(e) => (e.target.style.color = 'var(--counter-rd)')}
+				onMouseOut={(e) => (e.target.style.color = 'var(--font-bl)')}
+					
+					>Home</a>
 					{categories.map((categories, index) => (
 						<div key={index} className="col-lg-3 col-md-4 col-md-6 mb-4">
 							<div className="card">
@@ -32,11 +40,14 @@ const Categorys = () => {
 										}>
 										Start
 									</Button>
+									
 								</div>
 							</div>
 						</div>
 					))}
+					
 				</div>
+				
 			</div>
 		</div>
 	);
