@@ -47,7 +47,7 @@ const categories = [
     { 'RegEx': RegEx },
     { 'Scope': Scope },
     { 'Switch': Switch },
-    { 'If / Else If': IfElseIf },
+    { 'Else If': IfElseIf },
     { 'Sytax': Syntax },
     { 'Variables': Variables }
 ]
