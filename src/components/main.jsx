@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import '../styles/main.css'
 import { clear } from "@testing-library/user-event/dist/clear";
+import { useNavigate } from "react-router-dom";
+import categories from "../data/CategoryData";
 
 const MainModule = ({toggleCategories}) => {
  const [isVisible, setIsVisible] = useState(false);
+ const navigate = useNavigate();
 
  useEffect(() => {
     setTimeout(() => {
@@ -35,9 +38,12 @@ const MainModule = ({toggleCategories}) => {
         <h1 className="my-auto">Modes</h1>
         <div className="row row-cols-4 d-flex justify-content-center align-items-center">
         <div className="col-6">
+            
             <Button className="p-2 main-btn" style={{fontSize:'var(--font-size-md)', width:'10rem', backgroundColor: 'var(--red-bg)',
               color: 'var(--font-wt)',
-              fontWeight: '600',}} onClick={toggleCategories}> Classic</Button>
+              fontWeight: '600',}} onClick= {() =>
+                navigate(`/quiz/${Object.keys(categories)}`)
+            }> Classic</Button>
           </div>
           <div className="col-6">
             <Button className="p-2 main-btn" style={{fontSize:'var(--font-size-md)', width:'10rem', backgroundColor: 'var(--red-bg)',
