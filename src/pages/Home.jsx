@@ -3,6 +3,7 @@ import Footer from "../components/footer";
 import Categorys from "../components/Categorys";
 import MainModule from "../components/main";
 import { useState } from "react";
+import '../styles/footer.css';
 
 const Home = () => {
 	const [show, setShow] = useState(false);
@@ -23,7 +24,9 @@ const Home = () => {
 				{show && <Categorys />}
 			</div>
 			{!show && <MainModule toggleCategories={toggleCategories} />}
-			{!show && <Footer />}
+			<div className={`footer-container ${show ? "slide-in" : ""}`}>
+				<Footer />
+			</div>
 		
 		</>
 	);

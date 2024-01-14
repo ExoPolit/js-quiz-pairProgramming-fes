@@ -8,6 +8,15 @@ import { useEffect, useState } from "react";
 const Nav = () => {
   const [user] = useAuthState(auth);
   const [userName, setUserName] = useState("");
+const [isVisible, setIsVisible] = useState(false);
+
+useEffect(() => {
+    setTimeout(() => {
+      setIsVisible(true);
+    }, 300);
+
+    return () => clearTimeout();
+    }, []);
 
   useEffect(() => {
     if (user) {
@@ -18,8 +27,11 @@ const Nav = () => {
     }
   }, [user]);
 
+
+
   return (
     <>
+    <div className={`nav-container ${isVisible ? "slide-in" : ""}`}>
       <nav className="navbar navbar-expand-lg navbar-light">
         <div
           className="container-fluid  fixed-top "
@@ -48,6 +60,7 @@ const Nav = () => {
           </div>
         </div>
       </nav>
+      </div>
     </>
   );
 };
