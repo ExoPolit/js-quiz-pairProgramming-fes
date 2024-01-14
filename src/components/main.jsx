@@ -12,18 +12,20 @@ const MainModule = () => {
       style={{ border: "1px solid black" }}
     >
       <div
-        className="row" style={{border: "1px solid black"}}
+        className="row" style={{backgroundColor: 'var(--main-bg)', padding: '10rem'}}
       >
-        <div className="col-12">
+        <div className="col-12 my-5" style={{}}>
         <h1>Modes</h1>
         </div>
-
-        <div className="col-sm-4">
-            <p>butn</p>
+<div className="d-flex justify-content-center">
+<div className="col-8">
+           <Button className="p-2"> Classic Mode </Button>
             </div>
-        <div className="col">
-            <p>butn</p>
+        <div className="col-8">
+           <Button className="p-2"> Practice Mode </Button>
             </div>
+</div>
+    
       </div>
     </div>
   );
