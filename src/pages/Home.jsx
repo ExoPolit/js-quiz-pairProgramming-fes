@@ -22,13 +22,9 @@ const Home = () => {
 				}}>
 				{show && <Categorys />}
 			</div>
-			{!show && <MainModule />}
+			{!show && <MainModule toggleCategories={toggleCategories} />}
 			{!show && <Footer />}
-			<button
-				onClick={toggleCategories}
-				style={{ position: "absolute", top: "25rem" }}>
-				Show More
-			</button>
+		
 		</>
 	);
 };
