@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 import { Button } from "react-bootstrap";
 import categories from "../data/CategoryData";
+import "../styles/categorys.css";
 
 const Categorys = () => {
 	const navigate = useNavigate();
@@ -9,19 +10,21 @@ const Categorys = () => {
 	return (
 		<div style={{ backgroundColor: "var(--main-bg)", padding: "25px" }}>
 			<div className="container-lg">
-				<div className="row">
-					<a
+			<a
 						href="/"
-						className="mb-4"
+						className="mb-4 link-hover-effect"
 						style={{
 							fontSize: "var(--font-size-md)",
 							textDecoration: "none",
 							transition: "color 0.3s",
+							width: "2.7em",
 						}}
 						onMouseOver={(e) => (e.target.style.color = "var(--counter-rd)")}
 						onMouseOut={(e) => (e.target.style.color = "var(--font-bl)")}>
 						Home
 					</a>
+				<div className="row">
+					
 					{categories.map((categories, index) => (
 						<div key={index} className="col-lg-3 col-md-4 col-md-6 mb-4">
 							<div className="card">

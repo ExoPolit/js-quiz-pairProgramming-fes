@@ -24,7 +24,7 @@ const MainModule = ({toggleCategories}) => {
       text-center"
     >
       <div
-        className="row justify-content-center align-items-center"
+        className="row align-items-center justify-content-center"
         style={{
           backgroundColor: "var(--main-bg)",
           height: "27.375rem",
@@ -32,26 +32,30 @@ const MainModule = ({toggleCategories}) => {
           borderRadius: "255px",
         }}
       >
-        <h1>Modes</h1>
-        <div className="row">
-        <div className="d-flex justify-content-center align-items-center">
-        <div className="col-4">
-            <Button className="p-2" style={{fontSize:'var(--font-size-md)', width:'10rem'}} onClick={toggleCategories}> Classic</Button>
+        <h1 className="my-auto">Modes</h1>
+        <div className="row row-cols-4 d-flex justify-content-center align-items-center">
+        <div className="col-6">
+            <Button className="p-2 main-btn" style={{fontSize:'var(--font-size-md)', width:'10rem', backgroundColor: 'var(--red-bg)',
+              color: 'var(--font-wt)',
+              fontWeight: '600',}} onClick={toggleCategories}> Classic</Button>
           </div>
-          <div className="col-4">
-            <Button className="p-2" style={{fontSize:'var(--font-size-md)', width:'10rem'}} onClick={toggleCategories}> Practice</Button>
-          </div>
-          </div>
-        </div>
-        <div className="row">
-        <div className="d-flex justify-content-center align-items-center">
-          <div className="col-4 ">
-            <Button className="p-2" style={{fontSize:'var(--font-size-md)', width:'10rem'}} onClick={toggleCategories}> Timed</Button>
-          </div>
-          <div className="col-4">
-            <Button className="p-2" style={{fontSize:'var(--font-size-md)', width:'10rem'}} onClick={toggleCategories}> Hard</Button>
+          <div className="col-6">
+            <Button className="p-2 main-btn" style={{fontSize:'var(--font-size-md)', width:'10rem', backgroundColor: 'var(--red-bg)',
+              color: 'var(--font-wt)',
+              fontWeight: '600',}} onClick={toggleCategories}> Practice</Button>
           </div>
         </div>
+        <div className="row row-cols-4 d-flex justify-content-center align-items-center">
+          <div className="col-6">
+            <Button className="p-2 main-btn" style={{fontSize:'var(--font-size-md)', width:'10rem', backgroundColor: 'var(--red-bg)',
+              color: 'var(--font-wt)',
+              fontWeight: '600',}} onClick={toggleCategories}> Timed</Button>
+          </div>
+          <div className="col-6">
+            <Button className="p-2 main-btn" style={{fontSize:'var(--font-size-md)', width:'10rem', backgroundColor: 'var(--red-bg)',
+              color: 'var(--font-wt)',
+              fontWeight: '600',}} onClick={toggleCategories}> Hard</Button>
+          </div>
         </div>
         
       </div>
