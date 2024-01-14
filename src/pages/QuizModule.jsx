@@ -103,7 +103,9 @@ const QuizModule = () => {
 					</Button>
 				)}
 			</div>
-			<Footer />
+			<div className="fixed-bottom">
+			<Footer  />
+			</div>
 		</>
 	);
 };
