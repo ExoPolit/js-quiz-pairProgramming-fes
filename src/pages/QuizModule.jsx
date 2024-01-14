@@ -14,6 +14,8 @@ const QuizModule = () => {
 	const { cat } = useParams();
 	const [questions, setQuestions] = useState([]);
 	const [current, setCurrent] = useState(0);
+	const [score, setScore] = useState(0);
+	const [answerSelected, setAnswerSelected] = useState(false);
 
 	useEffect(() => {
 		const selectedCategory = categories.find(
@@ -32,31 +34,46 @@ const QuizModule = () => {
 
 	const handleNext = () => {
 		localStorage.setItem(`currentAnswerIndex-${cat}`, current + 1);
-
 		setCurrent(current + 1);
-	};
-	const handleBack = () => {
-		localStorage.setItem(`currentAnswerIndex-${cat}`, current - 1);
-
-		setCurrent(current - 1);
+		setAnswerSelected(false);
 	};
 
-	const btnSize = "md";
+	const selectAnswer = (answer, isCorrect) => {
+		setScore((prevScore) => (isCorrect ? prevScore + 1 : prevScore));
+
+		setQuestions((prevQuestions) => {
+			const updatedQuestions = [...prevQuestions];
+			updatedQuestions[current].answers = updatedQuestions[current].answers.map(
+				(a) => {
+					return {
+						...a,
+						selected: a === answer,
+					};
+				},
+			);
+			return updatedQuestions;
+		});
+
+		setAnswerSelected(true);
+	};
 
 	return (
 		<>
 			<Nav cat={cat} />
 			<div id="quizModule" className="container">
 				<div className="row">
-					{/* <h1>Category: {cat}</h1> */}
 					{questions.slice(current, current + 1).map((question, index) => (
 						<div key={index}>
 							<h2>{`Q${index + (current + 1)}: ${question.question}`}</h2>
 							{question.answers.map((answer, ansIndex) => (
 								<Button
 									key={ansIndex}
-									className="w-100 text-start btn-answers"
-									variant="outline-none">
+									className={`w-100 text-start btn-answers ${
+										answer.selected ? "selected" : ""
+									} ${answer.correct ? "correct" : "incorrect"}`}
+									variant="outline-none"
+									onClick={() => selectAnswer(answer, answer.correct)}
+									disabled={answerSelected}>
 									<p className="option-left">{Object.keys(answer)[0]}.</p>{" "}
 									<p className="option-right">
 										{answer[Object.keys(answer)[0]]}
@@ -68,43 +85,18 @@ const QuizModule = () => {
 				</div>
 			</div>
 			<div className="btn-wrapper">
-				{current === 0 ? (
+				{answerSelected && (
 					<Button
-						className="col-12 back-next"
+						className="col-12 next"
 						variant="outline-none"
 						onClick={handleNext}
-						size={btnSize}>
+						size="md">
 						Next
-					</Button>
-				) : current > 0 && current < questions.length - 1 ? (
-					<>
-						<Button
-							className="col-6 back-next"
-							variant="outline-none"
-							onClick={handleBack}
-							size={btnSize}>
-							Back
-						</Button>
-						<Button
-							className="col-6 back-next"
-							variant="outline-none"
-							onClick={handleNext}
-							size={btnSize}>
-							Next
-						</Button>
-					</>
-				) : (
-					<Button
-						className="col-12 back-next"
-						variant="outline-none"
-						onClick={handleBack}
-						size={btnSize}>
-						Back
 					</Button>
 				)}
 			</div>
 			<div className="fixed-bottom">
-			<Footer  />
+				<Footer />
 			</div>
 		</>
 	);

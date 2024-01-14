@@ -41,8 +41,8 @@ const MainModule = ({toggleCategories}) => {
             
             <Button className="p-2 main-btn" style={{fontSize:'var(--font-size-md)', width:'10rem', backgroundColor: 'var(--red-bg)',
               color: 'var(--font-wt)',
-              fontWeight: '600',}} onClick= {() =>
-                navigate(`/quiz/${Object.keys(categories)}`)
+              fontWeight: '600',}} 
+              onClick= {() => navigate(`/quiz/${Object.keys(categories)}`)
             }> Classic</Button>
           </div>
           <div className="col-6">
