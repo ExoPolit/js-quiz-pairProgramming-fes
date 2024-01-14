@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import '../styles/main.css'
-import { clear } from "@testing-library/user-event/dist/clear";
 import { useNavigate } from "react-router-dom";
-import categories from "../data/CategoryData";
 
 const MainModule = ({toggleCategories}) => {
  const [isVisible, setIsVisible] = useState(false);
@@ -16,6 +14,10 @@ const MainModule = ({toggleCategories}) => {
 
     return () => clearTimeout();
     }, []);
+
+ 
+
+
 
   return (
     <div className={`main-container ${isVisible ? "slide-up" : ""}`}>
@@ -32,18 +34,16 @@ const MainModule = ({toggleCategories}) => {
           backgroundColor: "var(--main-bg)",
           height: "27.375rem",
           width: "60rem",
-          borderRadius: "255px",
+          borderRadius: "55px",
         }}
       >
-        <h1 className="my-auto">Modes</h1>
+        <h1 className="my-auto">Choose Mode</h1>
         <div className="row row-cols-4 d-flex justify-content-center align-items-center">
         <div className="col-6">
             
             <Button className="p-2 main-btn" style={{fontSize:'var(--font-size-md)', width:'10rem', backgroundColor: 'var(--red-bg)',
               color: 'var(--font-wt)',
-              fontWeight: '600',}} onClick= {() =>
-                navigate(`/quiz/${Object.keys(categories)}`)
-            }> Classic</Button>
+              fontWeight: '600',}} > Classic</Button>
           </div>
           <div className="col-6">
             <Button className="p-2 main-btn" style={{fontSize:'var(--font-size-md)', width:'10rem', backgroundColor: 'var(--red-bg)',
