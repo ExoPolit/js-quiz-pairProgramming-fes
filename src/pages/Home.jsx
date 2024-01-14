@@ -1,6 +1,7 @@
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 import Categorys from "../components/Categorys";
+import MainModule from "../components/main";
 import { useState } from "react";
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
 				}}>
 				{show && <Categorys />}
 			</div>
+			{!show && <MainModule />}
 			{!show && <Footer />}
 			<button
 				onClick={toggleCategories}
