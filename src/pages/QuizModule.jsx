@@ -48,6 +48,9 @@ const QuizModule = ({selectedQuestions}) => {
 	};
 
 	const selectAnswer = (answer, isCorrect) => {
+		console.log("Slexted Answer:", answer);
+		console.log("Os correct:", isCorrect);
+
 		setScore((prevScore) => (isCorrect ? prevScore + 1 : prevScore));
 
 		setQuestions((prevQuestions) => {
@@ -77,9 +80,8 @@ const QuizModule = ({selectedQuestions}) => {
 							{question.answers.map((answer, ansIndex) => (
 								<Button
 									key={ansIndex}
-									className={`w-100 text-start btn-answers ${
-										answer.selected ? "selected" : ""
-									} ${answer.correct ? "correct" : "incorrect"}`}
+									className={`w-100 text-start btn-answers ${answer.selected ? (answer.correct ? "selected correct" : "selected incorrect") : ""}`}
+									style={{backgroundColor: answer.selected ? (answer.correct ? "var(--green-bg)" : "var(--red-bg)") : ""}}
 									variant="outline-none"
 									onClick={() => selectAnswer(answer, answer.correct)}
 									disabled={answerSelected}>

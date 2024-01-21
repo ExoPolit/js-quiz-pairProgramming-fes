@@ -21,7 +21,7 @@
 }
 
 #quizModule .btn-answers:hover {
-  background-color: var(--banana-green-bg);
+  background-color: white;
   color: var(--font-bl);
 }
 
@@ -35,12 +35,12 @@
 }
 
 #quizModule .btn-answers.selected.correct {
-  background-color: var(--green-bg);
+  background-color: var(--red-bg) !important;
   color: var(--font-bl);
 }
 
 #quizModule .btn-answers.selected.incorrect {
-  background-color: var(--red-bg);
+  background-color: var(--green-bg);
   color: var(--font-bl);
 }
 

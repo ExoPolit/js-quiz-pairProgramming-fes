@@ -6,8 +6,8 @@ import SelectedQuestionsDisplay from "./SelectedQuestionsDisplay";
 const ClassicPage = ({selectedQuestions}) => {
   return (
     <>
-    <SelectedQuestionsDisplay selectedQuestions={selectedQuestions} />
     <QuizModule questions={selectedQuestions}/>
+    <SelectedQuestionsDisplay selectedQuestions={selectedQuestions} />
     </>
   );
 };

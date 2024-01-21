@@ -34,7 +34,7 @@ const categories = [
     { "Event Loop": EventLoop },
     { "Events": Events },
     { 'FP': functionalProgramming },
-    { "Functiopns": Functions },
+    { "Functions": Functions },
     { "Loops": Loops },
     { "Maths": Maths },
     { 'Methods': Method },
