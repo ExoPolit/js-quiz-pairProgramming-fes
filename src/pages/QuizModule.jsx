@@ -10,7 +10,7 @@ import { Button } from "react-bootstrap";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 
-const QuizModule = ({selectedQuestions}) => {
+const QuizModule = ({ selectedQuestions }) => {
 	const { cat } = useParams();
 	const [questions, setQuestions] = useState([]);
 	const [current, setCurrent] = useState(0);
@@ -21,7 +21,7 @@ const QuizModule = ({selectedQuestions}) => {
 	useEffect(() => {
 		setClassicQuestions(selectedQuestions);
 		const savedAnswerIndex = localStorage.getItem(`currentAnswerIndex-${cat}`);
-		if(savedAnswerIndex){
+		if (savedAnswerIndex) {
 			setCurrent(parseInt(savedAnswerIndex, 10));
 		}
 	}, [selectedQuestions]);
@@ -48,9 +48,6 @@ const QuizModule = ({selectedQuestions}) => {
 	};
 
 	const selectAnswer = (answer, isCorrect) => {
-		console.log("Slexted Answer:", answer);
-		console.log("Os correct:", isCorrect);
-
 		setScore((prevScore) => (isCorrect ? prevScore + 1 : prevScore));
 
 		setQuestions((prevQuestions) => {
@@ -80,8 +77,14 @@ const QuizModule = ({selectedQuestions}) => {
 							{question.answers.map((answer, ansIndex) => (
 								<Button
 									key={ansIndex}
-									className={`w-100 text-start btn-answers ${answer.selected ? (answer.correct ? "selected correct" : "selected incorrect") : ""}`}
-									style={{backgroundColor: answer.selected ? (answer.correct ? "var(--green-bg)" : "var(--red-bg)") : ""}}
+									className={`w-100 text-start btn-answers ${
+										answer.selected
+											? answer.correct
+												? "selected correct"
+												: "selected incorrect"
+											: ""
+									}`}
+									// style={{backgroundColor: answer.selected ? (answer.correct ? "var(--green-bg)" : "var(--red-bg)") : ""}}
 									variant="outline-none"
 									onClick={() => selectAnswer(answer, answer.correct)}
 									disabled={answerSelected}>

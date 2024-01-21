@@ -1,67 +1,67 @@
-#quizModule .row {
-  background-color: var(--main-bg);
-  margin-top: 20vh;
-  padding: 1.5rem 2rem;
-}
+  #quizModule .row {
+    background-color: var(--main-bg);
+    margin-top: 20vh;
+    padding: 1.5rem 2rem;
+  }
 
-#quizModule h2 {
-  margin-bottom: 2rem;
-  background-color: var(--gray-bg);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  text-align: center;
-}
+  #quizModule h2 {
+    margin-bottom: 2rem;
+    background-color: var(--gray-bg);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+  }
 
-#quizModule .btn-answers {
-  background-color: var(--gray-bg);
-  color: var(--font-bl);
-  font-size: var(--font-size-md);
-  margin: 0.5rem 0;
-  transition: all 0.2s ease-in-out;
-}
+  #quizModule .btn-answers {
+    background-color: var(--gray-bg);
+    color: var(--font-bl);
+    font-size: var(--font-size-md);
+    margin: 0.5rem 0;
+    transition: all 0.2s ease-in-out;
+  }
 
-#quizModule .btn-answers:hover {
-  background-color: white;
-  color: var(--font-bl);
-}
+  #quizModule .btn-answers:hover {
+    background-color: white;
+    color: var(--font-bl);
+  }
 
-#quizModule .option-left {
-  display: inline;
-}
+  #quizModule .option-left {
+    display: inline;
+  }
 
-#quizModule .option-right {
-  display: inline;
-  margin-left: 1%;
-}
+  #quizModule .option-right {
+    display: inline;
+    margin-left: 1%;
+  }
 
-#quizModule .btn-answers.selected.correct {
-  background-color: var(--red-bg) !important;
-  color: var(--font-bl);
-}
+  #quizModule .btn-answers.selected.correct {
+    background-color: var(--green-bg);
+    color: var(--font-bl);
+  }
 
-#quizModule .btn-answers.selected.incorrect {
-  background-color: var(--green-bg);
-  color: var(--font-bl);
-}
+  #quizModule .btn-answers.selected.incorrect {
+    background-color: var(--red-bg);
+    color: var(--font-bl);
+  }
 
-.btn-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-}
+  .btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
 
-.next {
-  background-color: var(--green-btn);
-  color: var(--font-bl);
-  font-weight: 600;
-  font-size: var(--font-size-md);
-  width: auto;
-  border-radius: 20rem;
-  transition: all 0.2s ease-in-out;
-}
+  .next {
+    background-color: var(--green-btn);
+    color: var(--font-bl);
+    font-weight: 600;
+    font-size: var(--font-size-md);
+    width: auto;
+    border-radius: 20rem;
+    transition: all 0.2s ease-in-out;
+  }
 
-.next:hover {
-  background-color: #61FF00;
-  color: var(--font-wt);
-}
+  .next:hover {
+    background-color: #61FF00;
+    color: var(--font-wt);
+  }
