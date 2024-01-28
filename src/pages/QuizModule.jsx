@@ -100,7 +100,7 @@ const QuizModule = ({ selectedQuestions }) => {
 									}`}
 									style={{
 										backgroundColor: answer.selected
-											? isCorrect
+											? answer.correct
 												? 'var(--green-bg)'
 												: 'var(--red-bg)'
 											: '',
