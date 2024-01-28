@@ -39,6 +39,13 @@ const QuizModule = ({ selectedQuestions }) => {
 		}
 	}, [cat]);
 
+	useEffect (() => {
+		if(selectedQuestions) {
+
+			setQuestions(selectedQuestions);
+		}
+	}, [selectedQuestions])
+
 	const handleNext = () => {
 		localStorage.setItem(`currentAnswerIndex-${cat}`, current + 1);
 		setCurrent(current + 1);
@@ -75,7 +82,7 @@ const QuizModule = ({ selectedQuestions }) => {
 			<Nav cat={cat} />
 			<div id='quizModule' className='container'>
 				<div className='row'>
-					{questions.slice(current, current + 1).map((question, index) => (
+					{questions && questions.slice(current, current + 1).map((question, index) => (
 						<div key={index}>
 							<h2>{`Q${index + (current + 1)}: ${question.question}`}</h2>
 							{question.answers.map((answer, ansIndex) => (

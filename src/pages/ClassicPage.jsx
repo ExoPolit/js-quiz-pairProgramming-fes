@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import QuizModule from "./QuizModule";
 import categories from "../data/CategoryData";
 
 const ClassicPage = () => {
@@ -11,12 +12,23 @@ const ClassicPage = () => {
     setClassicQuestions(getRandomQuestions(40));
     setCurrentQuestionIndex(0);
   }, []);
-  console.log(classicQuestions);
+
+  useEffect(() => {
+    console.log("classicQuestions", classicQuestions);
+    console.log("classicQuestions", classicQuestions[currentQuestionIndex]);
+
+  }, [classicQuestions, currentQuestionIndex, selectedAnswer])
 
   function getRandomQuestions(count) {
     const allQuestions = categories.flatMap(category => Object.values(category)[0]);
     const shuffledQuestions = shuffleArray(allQuestions);
-    return shuffledQuestions.slice(0, count);
+    return shuffledQuestions.slice(0, count).map(question => {
+      // Prüfe, ob der Schlüssel 'answers' vorhanden ist, und füge ihn andernfalls hinzu
+      if (!question.hasOwnProperty('answers')) {
+        question.answers = {};
+      }
+      return question;
+    });
   }
 
   function shuffleArray(array) {
@@ -28,61 +40,23 @@ const ClassicPage = () => {
   }
 
   const handleAnswerSelection = (answer) => {
-    setSelectedAnswer(answer)
-  }
-  const handleNextQuestion = () => {   
-    if( selectedAnswer !== null) {
+    setSelectedAnswer(answer);
+  };
 
-        
-        // next to next question
-        console.log("curent question index before:", currentQuestionIndex)
-        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-        console.log("curent question index after:", currentQuestionIndex)
-         //reset selected answer
-         setSelectedAnswer(null);
-
-         setClassicQuestions((prevQuestions) => [...prevQuestions]);
+  const handleNextQuestion = () => {
+    if (selectedAnswer !== null) {
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+      setSelectedAnswer(null);
+    } else {
+      alert("Please select an answer");
     }
-    else {
-        alert("Please select an answer")
-    }
-    }
+  };
 
   return (
     <div>
-    <h2>Classic Mode</h2>
-    {console.log("Rendered classicQuestions:", classicQuestions)}
-    {currentQuestionIndex < classicQuestions.length && (
-      <div>
-        <h3>{`Q${currentQuestionIndex + 1}: ${classicQuestions[currentQuestionIndex].question || ""}`}</h3>
-        {classicQuestions[currentQuestionIndex].answers && (
-          <ul>
-            {Object.entries(classicQuestions[currentQuestionIndex].answers).map(([key, value], ansIndex) => (
-              <li
-                key={ansIndex}
-              
-                onClick={() => handleAnswerSelection(key)}
-              >
-                {`${key}: ${value}`}
-              </li>
-            ))}
-          </ul>
-        )}
-        <button onClick={handleNextQuestion}>Next Question</button>
+      <QuizModule selectedQuestions={classicQuestions} />
       </div>
-    )}
-    {currentQuestionIndex === classicQuestions.length && (
-      <div>
-        <p>Congratulations! You have completed all questions.</p>
-        <Link to="/">
-          <button>Home</button>
-        </Link>
-      </div>
-    )}
-  </div>
-  
-);
+  );
 };
-
 
 export default ClassicPage;
