@@ -44,6 +44,7 @@ const QuizModule = ({ selectedQuestions }) => {
 		setCurrent(current + 1);
 		setAnswerSelected(false);
 		if (current === questions.length - 1) {
+			localStorage.setItem(`currentAnswerIndex-${cat}`, 0);
 			navigate('/');
 		}
 	};
@@ -89,7 +90,7 @@ const QuizModule = ({ selectedQuestions }) => {
 									}`}
 									style={{
 										backgroundColor: answer.selected
-											? answer.correct
+											? isCorrect
 												? 'var(--green-bg)'
 												: 'var(--red-bg)'
 											: '',
