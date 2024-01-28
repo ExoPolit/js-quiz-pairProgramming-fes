@@ -12,7 +12,6 @@ const QuestionSelector = ({ onSelectQuestions }) => {
 
     return (
         <div>
-            <h2>Selected Questions</h2>
             <button onClick={selectQuestions}>Select Arrays Questions</button>
         </div>
     )
