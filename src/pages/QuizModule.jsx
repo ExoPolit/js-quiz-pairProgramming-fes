@@ -11,6 +11,7 @@ const QuizModule = ({ selectedQuestions }) => {
 	const [questions, setQuestions] = useState([]);
 	const [current, setCurrent] = useState(0);
 	const [score, setScore] = useState(0);
+	const [selectAnswerIndex, setSelectAnswerIndex] = useState(null);
 	const [answerSelected, setAnswerSelected] = useState(false);
 	const [classicQuestions, setClassicQuestions] = useState([]);
 	const [isCorrect, setIsCorrect] = useState(false);
@@ -50,31 +51,33 @@ const QuizModule = ({ selectedQuestions }) => {
 		localStorage.setItem(`currentAnswerIndex-${cat}`, current + 1);
 		setCurrent(current + 1);
 		setAnswerSelected(false);
+		setSelectAnswerIndex(null);
 		if (current === questions.length - 1) {
 			localStorage.setItem(`currentAnswerIndex-${cat}`, 0);
 			navigate('/');
 		}
 	};
 
-	const selectAnswer = (answer, correct) => {
-		console.log(answer, isCorrect);
-		setScore((prevScore) => (isCorrect ? prevScore + 1 : prevScore));
+	const selectAnswer = (answerIndex, correct) => {
+		console.log(answerIndex, correct);
+		setScore((prevScore) => (correct ? prevScore + 1 : prevScore));
 
 		setQuestions((prevQuestions) => {
 			const updatedQuestions = [...prevQuestions];
 			updatedQuestions[current].answers = updatedQuestions[current].answers.map(
-				(a) => {
+				(a, index) => {
 					return {
 						...a,
-						selected: a === answer,
+						selected: index === answerIndex,
 					};
 				},
 			);
-			setIsCorrect(correct);
-			setAnswerSelected(true);
+			
 
 			return updatedQuestions;
 		});
+		setSelectAnswerIndex(answerIndex);
+		setAnswerSelected(true);
 	};
 
 	return (
@@ -103,8 +106,8 @@ const QuizModule = ({ selectedQuestions }) => {
 											: '',
 									}}
 									variant='outline-none'
-									onClick={() => selectAnswer(answer, answer.correct)}
-									disabled={answerSelected}
+									onClick={() => selectAnswer(ansIndex, answer.correct)}
+									disabled={selectAnswerIndex !== null}
 								>
 									<p className='option-left'>{Object.keys(answer)[0]}.</p>{' '}
 									<p className='option-right'>
