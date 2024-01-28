@@ -1,33 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
-import categories from "../data/CategoryData";
-import Nav from "../components/nav";
-import Footer from "../components/footer";
-import "../../src/styles/QuizModule.css";
+import React, { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
+import categories from '../data/CategoryData';
 
-const QuizModule = ({ selectedQuestions }) => {
-  const { cat } = useParams();
+const TimedModeModule = ({ selectedQuestions, cat, navigate }) => {
   const [questions, setQuestions] = useState([]);
   const [current, setCurrent] = useState(0);
   const [score, setScore] = useState(0);
   const [selectAnswerIndex, setSelectAnswerIndex] = useState(null);
   const [answerSelected, setAnswerSelected] = useState(false);
-  const [classicQuestions, setClassicQuestions] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
-const [timeRemaining, setTimeRemaining] = useState(60);
-
-  const navigate = useNavigate();
-
-
-
-  useEffect(() => {
-    setClassicQuestions(selectedQuestions);
-    const savedAnswerIndex = localStorage.getItem(`currentAnswerIndex-${cat}`);
-    if (savedAnswerIndex) {
-      setCurrent(parseInt(savedAnswerIndex, 10));
-    }
-  }, [selectedQuestions]);
+  const [timeRemaining, setTimeRemaining] = useState(60);
 
   useEffect(() => {
     const selectedCategory = categories.find(
@@ -50,6 +32,28 @@ const [timeRemaining, setTimeRemaining] = useState(60);
     }
   }, [selectedQuestions]);
 
+  const startTimer = () => {
+    const timer = setInterval(() => {
+      setTimeRemaining((prevTime) => {
+        if (prevTime === 1) {
+          clearInterval(timer);
+          handleNext();
+        }
+        return prevTime - 1;
+      });
+    }, 1000);
+  
+    return timer;
+  };
+
+  useEffect(() => {
+    if(timeRemaining > 0){
+        const timer = startTimer();
+        return () => clearInterval(timer);
+    }
+  },[timeRemaining])
+
+
   const handleNext = () => {
     localStorage.setItem(`currentAnswerIndex-${cat}`, current + 1);
     setCurrent(current + 1);
@@ -57,7 +61,7 @@ const [timeRemaining, setTimeRemaining] = useState(60);
     setSelectAnswerIndex(null);
     if (current === questions.length - 1) {
       localStorage.setItem(`currentAnswerIndex-${cat}`, 0);
-      navigate("/");
+      navigate('/');
     }
   };
 
@@ -82,21 +86,8 @@ const [timeRemaining, setTimeRemaining] = useState(60);
     setAnswerSelected(true);
   };
 
-useEffect(() => {
-	const timer = setInterval(() => {
-		setTimeRemaining((prevTime) => prevTime - 1 )
-		if(timeRemaining === 0) {
-			clearInterval(timer)
-			handleNext()
-		}
-	}, 1000);
-	return () => clearInterval(timer);
-},[timeRemaining]);
-
-
   return (
     <>
-      <Nav cat={cat} />
       <div id="quizModule" className="container">
         <div className="row">
           {questions &&
@@ -109,22 +100,22 @@ useEffect(() => {
                     className={`w-100 text-start btn-answers ${
                       answer.selected
                         ? isCorrect
-                          ? "selected correct"
-                          : "selected incorrect"
-                        : ""
+                          ? 'selected correct'
+                          : 'selected incorrect'
+                        : ''
                     }`}
                     style={{
                       backgroundColor: answer.selected
                         ? answer.correct
-                          ? "var(--green-bg)"
-                          : "var(--red-bg)"
-                        : "",
+                          ? 'var(--green-bg)'
+                          : 'var(--red-bg)'
+                        : '',
                     }}
                     variant="outline-none"
                     onClick={() => selectAnswer(ansIndex, answer.correct)}
                     disabled={selectAnswerIndex !== null}
                   >
-                    <p className="option-left">{Object.keys(answer)[0]}.</p>{" "}
+                    <p className="option-left">{Object.keys(answer)[0]}.</p>{' '}
                     <p className="option-right">
                       {answer[Object.keys(answer)[0]]}
                     </p>
@@ -146,11 +137,9 @@ useEffect(() => {
           </Button>
         )}
       </div>
-      <div className="fixed-bottom">
-        <Footer />
-      </div>
     </>
   );
 };
 
-export default QuizModule;
+
+export default TimedModeModule;
