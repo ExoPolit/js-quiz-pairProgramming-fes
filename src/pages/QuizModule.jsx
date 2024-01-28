@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { Button } from "react-bootstrap";
-import categories from "../data/CategoryData";
-import Nav from "../components/nav";
-import Footer from "../components/footer";
-import "../../src/styles/QuizModule.css";
-
-
-
-
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import categories from '../data/CategoryData';
+import Nav from '../components/nav';
+import Footer from '../components/footer';
+import '../../src/styles/QuizModule.css';
 
 const QuizModule = ({ selectedQuestions }) => {
 	const { cat } = useParams();
@@ -18,6 +14,7 @@ const QuizModule = ({ selectedQuestions }) => {
 	const [answerSelected, setAnswerSelected] = useState(false);
 	const [classicQuestions, setClassicQuestions] = useState([]);
 	const [isCorrect, setIsCorrect] = useState(false);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		setClassicQuestions(selectedQuestions);
@@ -46,10 +43,13 @@ const QuizModule = ({ selectedQuestions }) => {
 		localStorage.setItem(`currentAnswerIndex-${cat}`, current + 1);
 		setCurrent(current + 1);
 		setAnswerSelected(false);
+		if (current === questions.length - 1) {
+			navigate('/');
+		}
 	};
 
 	const selectAnswer = (answer, correct) => {
-		console.log(answer, isCorrect)
+		console.log(answer, isCorrect);
 		setScore((prevScore) => (isCorrect ? prevScore + 1 : prevScore));
 
 		setQuestions((prevQuestions) => {
@@ -63,19 +63,17 @@ const QuizModule = ({ selectedQuestions }) => {
 				},
 			);
 			setIsCorrect(correct);
-		setAnswerSelected(true);
+			setAnswerSelected(true);
 
 			return updatedQuestions;
-
 		});
-
 	};
 
 	return (
 		<>
 			<Nav cat={cat} />
-			<div id="quizModule" className="container">
-				<div className="row">
+			<div id='quizModule' className='container'>
+				<div className='row'>
 					{questions.slice(current, current + 1).map((question, index) => (
 						<div key={index}>
 							<h2>{`Q${index + (current + 1)}: ${question.question}`}</h2>
@@ -85,18 +83,23 @@ const QuizModule = ({ selectedQuestions }) => {
 									className={`w-100 text-start btn-answers ${
 										answer.selected
 											? isCorrect
-												? "selected correct"
-												: "selected incorrect"
-											: ""
+												? 'selected correct'
+												: 'selected incorrect'
+											: ''
 									}`}
-									 style={{
+									style={{
 										backgroundColor: answer.selected
-										 ? (answer.correct ? "var(--green-bg)" : "var(--red-bg)") : ""}}
-									variant="outline-none"
+											? answer.correct
+												? 'var(--green-bg)'
+												: 'var(--red-bg)'
+											: '',
+									}}
+									variant='outline-none'
 									onClick={() => selectAnswer(answer, answer.correct)}
-									disabled={answerSelected}>
-									<p className="option-left">{Object.keys(answer)[0]}.</p>{" "}
-									<p className="option-right">
+									disabled={answerSelected}
+								>
+									<p className='option-left'>{Object.keys(answer)[0]}.</p>{' '}
+									<p className='option-right'>
 										{answer[Object.keys(answer)[0]]}
 									</p>
 								</Button>
@@ -105,18 +108,19 @@ const QuizModule = ({ selectedQuestions }) => {
 					))}
 				</div>
 			</div>
-			<div className="btn-wrapper">
+			<div className='btn-wrapper'>
 				{answerSelected && (
 					<Button
-						className="col-12 next"
-						variant="outline-none"
+						className='col-12 next'
+						variant='outline-none'
 						onClick={handleNext}
-						size="md">
+						size='md'
+					>
 						Next
 					</Button>
 				)}
 			</div>
-			<div className="fixed-bottom">
+			<div className='fixed-bottom'>
 				<Footer />
 			</div>
 		</>
