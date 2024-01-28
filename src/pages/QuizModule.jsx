@@ -1,14 +1,14 @@
-import "../../src/styles/QuizModule.css";
-
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-
-import categories from "../data/CategoryData";
-
 import { Button } from "react-bootstrap";
-
+import categories from "../data/CategoryData";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
+import "../../src/styles/QuizModule.css";
+
+
+
+
 
 const QuizModule = ({ selectedQuestions }) => {
 	const { cat } = useParams();
@@ -17,6 +17,7 @@ const QuizModule = ({ selectedQuestions }) => {
 	const [score, setScore] = useState(0);
 	const [answerSelected, setAnswerSelected] = useState(false);
 	const [classicQuestions, setClassicQuestions] = useState([]);
+	const [isCorrect, setIsCorrect] = useState(false);
 
 	useEffect(() => {
 		setClassicQuestions(selectedQuestions);
@@ -47,7 +48,8 @@ const QuizModule = ({ selectedQuestions }) => {
 		setAnswerSelected(false);
 	};
 
-	const selectAnswer = (answer, isCorrect) => {
+	const selectAnswer = (answer, correct) => {
+		console.log(answer, isCorrect)
 		setScore((prevScore) => (isCorrect ? prevScore + 1 : prevScore));
 
 		setQuestions((prevQuestions) => {
@@ -60,10 +62,13 @@ const QuizModule = ({ selectedQuestions }) => {
 					};
 				},
 			);
+			setIsCorrect(correct);
+		setAnswerSelected(true);
+
 			return updatedQuestions;
+
 		});
 
-		setAnswerSelected(true);
 	};
 
 	return (
@@ -79,12 +84,14 @@ const QuizModule = ({ selectedQuestions }) => {
 									key={ansIndex}
 									className={`w-100 text-start btn-answers ${
 										answer.selected
-											? answer.correct
+											? isCorrect
 												? "selected correct"
 												: "selected incorrect"
 											: ""
 									}`}
-									// style={{backgroundColor: answer.selected ? (answer.correct ? "var(--green-bg)" : "var(--red-bg)") : ""}}
+									 style={{
+										backgroundColor: answer.selected
+										 ? (answer.correct ? "var(--green-bg)" : "var(--red-bg)") : ""}}
 									variant="outline-none"
 									onClick={() => selectAnswer(answer, answer.correct)}
 									disabled={answerSelected}>
