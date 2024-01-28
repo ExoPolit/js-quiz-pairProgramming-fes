@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import categories from "../data/CategoryData";
 import Nav from "../components/nav";
+import TimedModeModule from "../components/TimedModeModule";
 import Footer from "../components/footer";
 import "../../src/styles/QuizModule.css";
 
@@ -15,11 +16,24 @@ const QuizModule = ({ selectedQuestions }) => {
   const [answerSelected, setAnswerSelected] = useState(false);
   const [classicQuestions, setClassicQuestions] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
-const [timeRemaining, setTimeRemaining] = useState(60);
+const [localTimeRemaining, setLocalTimeRemaining] = useState(60);
 
   const navigate = useNavigate();
 
+  
+  const startTimer = () => {
+    const timer = setInterval(() => {
+      setLocalTimeRemaining((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
+      
+	  
+    }, 1000);
 
+    return () => clearInterval(timer);
+  }
+
+  useEffect(() => {
+	startTimer();
+  },[]);
 
   useEffect(() => {
     setClassicQuestions(selectedQuestions);
@@ -82,16 +96,7 @@ const [timeRemaining, setTimeRemaining] = useState(60);
     setAnswerSelected(true);
   };
 
-useEffect(() => {
-	const timer = setInterval(() => {
-		setTimeRemaining((prevTime) => prevTime - 1 )
-		if(timeRemaining === 0) {
-			clearInterval(timer)
-			handleNext()
-		}
-	}, 1000);
-	return () => clearInterval(timer);
-},[timeRemaining]);
+ 
 
 
   return (
@@ -149,6 +154,8 @@ useEffect(() => {
       <div className="fixed-bottom">
         <Footer />
       </div>
+		<TimedModeModule timeRemaining={localTimeRemaining} />
+
     </>
   );
 };
