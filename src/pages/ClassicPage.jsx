@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import QuizModule from "./QuizModule";
 import categories from "../data/CategoryData";
 
@@ -8,10 +7,7 @@ const ClassicPage = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
-  useEffect(() => {
-    setClassicQuestions(getRandomQuestions(40));
-    setCurrentQuestionIndex(0);
-  }, []);
+
 
   useEffect(() => {
     console.log("classicQuestions", classicQuestions);
@@ -23,7 +19,6 @@ const ClassicPage = () => {
     const allQuestions = categories.flatMap(category => Object.values(category)[0]);
     const shuffledQuestions = shuffleArray(allQuestions);
     return shuffledQuestions.slice(0, count).map(question => {
-      // Prüfe, ob der Schlüssel 'answers' vorhanden ist, und füge ihn andernfalls hinzu
       if (!question.hasOwnProperty('answers')) {
         question.answers = {};
       }
@@ -39,6 +34,11 @@ const ClassicPage = () => {
     return array;
   }
 
+  useEffect(() => {
+    setClassicQuestions(getRandomQuestions(40));
+    setCurrentQuestionIndex(0);
+  }, []);
+
   const handleAnswerSelection = (answer) => {
     setSelectedAnswer(answer);
   };
@@ -48,7 +48,7 @@ const ClassicPage = () => {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
       setSelectedAnswer(null);
     } else {
-      alert("Please select an answer");
+      console.error("Please select an answer")
     }
   };
 

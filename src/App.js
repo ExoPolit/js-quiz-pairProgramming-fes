@@ -14,7 +14,7 @@ function App() {
     <Router>
       <Routes>
 <Route path="/classic" element={<ClassicPage categories={categories} selectedQuestions={selectedQuestions} setSelectedQuestions={setSelectedQuestions} />} />
-        <Route path="/timed" element={<TimedModeModule categories={categories} timeRemaining={localTimeRemaining} setLocalTimeRemaining={setLocalTimeRemaining} selectedQuestions={selectedQuestions} setSelectedQuestions={setSelectedQuestions} />} />
+        <Route path="/timed" element={<TimedModeModule  timeRemaining={localTimeRemaining} setLocalTimeRemaining={setLocalTimeRemaining} selectedQuestions={selectedQuestions} setSelectedQuestions={setSelectedQuestions} />} />
         <Route path="/" element={<Home />} />
         <Route path="/quiz/:cat" element={<QuizModule  />} />
       </Routes>

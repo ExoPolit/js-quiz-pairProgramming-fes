@@ -32,6 +32,7 @@ const [localTimeRemaining, setLocalTimeRemaining] = useState(60);
     if (savedAnswerIndex) {
       setCurrent(parseInt(savedAnswerIndex, 10));
     }
+    setCurrent(0)
   }, [selectedQuestions]);
 
   useEffect(() => {
