@@ -16,24 +16,12 @@ const QuizModule = ({ selectedQuestions }) => {
   const [answerSelected, setAnswerSelected] = useState(false);
   const [classicQuestions, setClassicQuestions] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
-const [localTimeRemaining, setLocalTimeRemaining] = useState();
+const [localTimeRemaining, setLocalTimeRemaining] = useState(60);
 
   const navigate = useNavigate();
-
-  
  
 
-  useEffect(() => {
-    let localTimeRemaining = 60;
-
-  
-    const timer = setInterval(() => {
-      localTimeRemaining = localTimeRemaining > 0 ? localTimeRemaining -1 : 0;
-       setLocalTimeRemaining(localTimeRemaining);
-    }, 1000);
-
-    return () => clearInterval(timer);
-  },[setLocalTimeRemaining]);
+ 
 
 
 
@@ -157,8 +145,6 @@ const [localTimeRemaining, setLocalTimeRemaining] = useState();
       <div className="fixed-bottom">
         <Footer />
       </div>
-		<TimedModeModule timeRemaining={localTimeRemaining} />
-
     </>
   );
 };
