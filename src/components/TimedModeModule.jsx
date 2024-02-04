@@ -1,9 +1,15 @@
 // TimedModeModule.jsx
 
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 const TimedModeModule = ({ timeRemaining  }) => {
-    console.log("timeRemaining", timeRemaining)
+  const location = useLocation();
+  if(location.pathname !== '/timed'){
+    return null;
+  }
+  
+
   return (
     <div className="timer-container" style={{ backgroundColor: 'black', padding: '10px', color:"white" }}>
       <p>Time Remaining: {timeRemaining} seconds</p>

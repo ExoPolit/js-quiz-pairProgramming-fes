@@ -9,11 +9,12 @@ import categories from "./data/CategoryData.js";
 
 function App() {
   const [selectedQuestions, setSelectedQuestions] = useState([]);
+  const [localTimeRemaining, setLocalTimeRemaining] = useState(60);
   return (
     <Router>
       <Routes>
-        <Route path="/timed" element={<TimedModeModule categories={categories} selectedQuestions={selectedQuestions} setSelectedQuestions={setSelectedQuestions} />} />
 <Route path="/classic" element={<ClassicPage categories={categories} selectedQuestions={selectedQuestions} setSelectedQuestions={setSelectedQuestions} />} />
+        <Route path="/timed" element={<TimedModeModule categories={categories} timeRemaining={localTimeRemaining} selectedQuestions={selectedQuestions} setSelectedQuestions={setSelectedQuestions} />} />
         <Route path="/" element={<Home />} />
         <Route path="/quiz/:cat" element={<QuizModule  />} />
       </Routes>
