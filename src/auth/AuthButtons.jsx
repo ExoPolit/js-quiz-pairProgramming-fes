@@ -44,56 +44,45 @@ const AuthButtons = () => {
   };
 
   return (
-    <div id="auth-btn">
-      {!loading &&!user && (
+    <div id="auth-btn-container">
+      {!loading && !user && (
         <>
-        
+
           <Button
+            className="auth-btn"
             variant="outline-none"
             onClick={handleShowLoginModal}
-            style={{
-              backgroundColor: 'var(--red-bg)',
-              color: 'var(--font-wt)',
-              fontWeight: '600',
-            }}
-            size="md"
+            size="lg"
             id="login-btn"
           >
             Login
           </Button>
           <Button
+            className="auth-btn"
             variant="outline-none"
             onClick={handleShowRegisterModal}
-            style={{
-              backgroundColor: 'var(--red-bg)',
-              color: 'var(--font-wt)',
-              fontWeight: '600',
-            }}
-            size="md"
+            size="lg"
             id="register-btn"
           >
             Register
           </Button>
-         
+
         </>
       )}
 
       {!loading && user && (
         <>
-        
+
           <Button
+            className="auth-btn"
             variant="outline-none"
             onClick={handleLogout}
-            style={{
-              backgroundColor: 'var(--red-bg)',
-              color: 'var(--font-wt)',
-              fontWeight: '600',
-            }}
-            size="md"
+            size="lg"
             id="logout-btn"
           >
             Logout
           </Button>
+
         </>
       )}
 

@@ -28,29 +28,29 @@ const Nav = ({ cat }) => {
 	}, [user]);
 
 	return (
-		<>
-			<div className={`nav-container ${isVisible ? "slide-in" : ""}`}>
-				<nav className="navbar navbar-expand-lg">
-					<div
-						className="navbar-container container-fluid fixed-top">
-						<figure id="img-wrapper">
-							<img
-								src={Banano}
-								alt="banano"
-								width={80}
-								height={100}
-								id="banano"
-							/>
-							<span className="greet">{userName}</span>
-						</figure>
-						<h1 className="nav-title">{cat ? `${cat}` : "BananaScript"}</h1>
-						<div className="" id="btn">
-							<AuthButtons />
-						</div>
+
+		<div className={`nav-container ${isVisible ? "slide-in" : ""}`}>
+			<nav className="navbar navbar-expand-lg">
+				<div
+					className="navbar-container container-fluid fixed-top">
+					<figure id="img-wrapper">
+						<img
+							src={Banano}
+							alt="banano"
+							width={80}
+							height={100}
+							id="banano"
+						/>
+						<span className="greet">{userName}</span>
+					</figure>
+					<h1 className="nav-title">{cat ? `${cat}` : "BananaScript"}</h1>
+					<div className="" id="btn">
+						<AuthButtons />
 					</div>
-				</nav>
-			</div>
-		</>
+				</div>
+			</nav>
+		</div>
+
 	);
 };
 
