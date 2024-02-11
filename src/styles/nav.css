@@ -1,5 +1,8 @@
+.navbar {
+    padding: 0;
+}
+
 .nav-container {
-    position: relative;
     transform: translateX(100%);
 }
 

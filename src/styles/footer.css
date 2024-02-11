@@ -3,12 +3,15 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    transition: right 0.5s ease-in; 
-  }
-  
-  .footer-container.slide-in {
-    left: 100%; 
-  }
+    background-color: var(--secondary-bg);
+    transform: translateX(100%);
+}
+
+.footer-container.slide-in {
+    transform: translateX(0);
+    transition: transform 0.5s ease-in-out;
+    z-index: 100;
+}
 
 #footer-content {
     display: flex;
@@ -19,12 +22,9 @@
 }
 
 #footer-content a {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
     text-decoration: none;
-    border-bottom: 0px solid #fff;
-    border-width: 0;
+    color: var(--font-wt);
+    font-size: var(--font-size-md);
 }
 
 #footer-content a::before,
