@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import QuizModule from "./QuizModule";
 import categories from "../data/CategoryData";
+import { useRef } from "react";
 
 const ClassicPage = () => {
   const [classicQuestions, setClassicQuestions] = useState([]);
@@ -51,6 +52,8 @@ const ClassicPage = () => {
       console.error("Please select an answer")
     }
   };
+
+ 
 
   return (
     <div>

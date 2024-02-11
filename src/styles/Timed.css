@@ -1,0 +1,22 @@
+#timed-wrapper{
+    display: grid;
+    grid-template-columns: 55rem 1fr;
+}
+ #timed-wrapper p {
+    font-size: var(--font-size-md);
+ }
+
+
+#timed-btn{
+font-size: var(--font-size-sm) ;
+font-weight: 500;
+padding: 4px;
+border: 1px solid black;
+border-radius: 100vw;
+transition: all 400ms ease;
+}
+#timed-btn:hover{
+    transform: scale(1.1);
+    background-color: var(--green-btn);
+}
+

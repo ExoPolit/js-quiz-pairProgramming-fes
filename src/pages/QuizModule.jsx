@@ -16,15 +16,9 @@ const QuizModule = ({ selectedQuestions }) => {
   const [answerSelected, setAnswerSelected] = useState(false);
   const [classicQuestions, setClassicQuestions] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
-const [localTimeRemaining, setLocalTimeRemaining] = useState(60);
+  const [localTimeRemaining, setLocalTimeRemaining] = useState(60);
 
   const navigate = useNavigate();
- 
-
- 
-
-
-
 
   useEffect(() => {
     setClassicQuestions(selectedQuestions);
@@ -32,7 +26,7 @@ const [localTimeRemaining, setLocalTimeRemaining] = useState(60);
     if (savedAnswerIndex) {
       setCurrent(parseInt(savedAnswerIndex, 10));
     }
-    setCurrent(0)
+    setCurrent(0);
   }, [selectedQuestions]);
 
   useEffect(() => {
@@ -87,9 +81,6 @@ const [localTimeRemaining, setLocalTimeRemaining] = useState(60);
     setSelectAnswerIndex(answerIndex);
     setAnswerSelected(true);
   };
-
- 
-
 
   return (
     <>
