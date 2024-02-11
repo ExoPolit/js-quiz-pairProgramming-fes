@@ -12,14 +12,14 @@
     background-color: var(--red-bg);
     color: var(--font-wt);
     font-weight: 600;
+    transition: all 0.4s ease-in-out;
+
 }
 
 #login-btn:hover {
-    transition: all 0.4s ease-in-out;
     transform: scale(1.1);
 }
 
 #register-btn:hover {
-    transition: all 0.4s ease-in-out;
     transform: scale(1.1);
 }
