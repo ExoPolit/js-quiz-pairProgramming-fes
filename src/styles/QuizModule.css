@@ -52,6 +52,7 @@
   }
 
   .next {
+    padding: 0 2rem;
     background-color: var(--green-btn);
     color: var(--font-bl);
     font-weight: 600;
@@ -62,6 +63,7 @@
   }
 
   .next:hover {
+    transform: scale(1.08);
     background-color: #61FF00;
-    color: var(--font-wt);
+    color: var(--counter-rd);
   }

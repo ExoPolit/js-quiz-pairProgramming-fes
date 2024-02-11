@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     transform: translateX(-100%);
-    transition: transform 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 .slide-up{
     transform: translateX(0);
@@ -12,8 +12,8 @@
 }
 .main-btn{
     border: none;
+    transition: all 500ms ease;
 }
 .main-btn:hover{
     scale: 1.1;
-    transition: scale 0.5s ease-in-out;
 }
