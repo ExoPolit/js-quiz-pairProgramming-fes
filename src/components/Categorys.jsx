@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 import { Button } from "react-bootstrap";
 import categories from "../data/CategoryData";
-import "../styles/categorys.css";
+import "../styles/Links.css";
 
 const Categorys = () => {
 	const navigate = useNavigate();
@@ -12,7 +12,7 @@ const Categorys = () => {
 			<div className="container-lg">
 			<a
 						href="/"
-						className="mb-4 link-hover-effect"
+						className="mb-4 link-hover-effect home"
 						style={{
 							fontSize: "var(--font-size-md)",
 							textDecoration: "none",

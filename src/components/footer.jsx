@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../styles/footer.css';
+import '../styles/Links.css';
 
 const Footer = () => {
 	const [isVisible, setIsVisible] = useState(false);
