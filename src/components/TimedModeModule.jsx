@@ -25,7 +25,7 @@ useEffect(() => {
   const resetTimer = () => {
     clearInterval(timerRef.current);
     setLocalTimeRemaining(60);
-    timerRef.current = setInterval (() => setLocalTimeRemaining(prev => prev -1 ), 1000)
+    timerRef.current = setInterval (() => setLocalTimeRemaining(prev => prev - 1), 1000)
   }
   
   const location = useLocation();
