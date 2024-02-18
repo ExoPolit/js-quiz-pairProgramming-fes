@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import '../styles/main.css'
 import { useNavigate } from "react-router-dom";
+import '../styles/main.css'
 
 const MainModule = ({toggleCategories}) => {
  const [isVisible, setIsVisible] = useState(false);

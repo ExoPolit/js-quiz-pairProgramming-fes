@@ -16,9 +16,9 @@ const Footer = () => {
 
 		<div className={`footer-container ${isVisible ? "slide-in" : ""}`}>
 			<footer className="container sticky-bottom" >
-				<div className="" id="footer-content">
-					<a href="#" className="m-4">About</a>
-					<a href="#" className="">Contact</a>
+				<div className="m-4" id="footer-content">
+					<a href="#" className="link-hover-effect">About</a>
+					<a href="#" className="link-hover-effect">Contact</a>
 				</div>
 			</footer>
 		</div>

@@ -1,24 +1,26 @@
-.navbar {
-    padding: 0;
-}
-
 .nav-container {
+    z-index: 1;
     transform: translateX(100%);
 }
-
 .nav-container.slide-in {
     transform: translateX(0);
     transition: transform 0.5s ease-in-out;
-    z-index: 100;
+    
 }
 
 .navbar-container {
     background-color: var(--secondary-bg);
 }
+.navbar {
+    padding: 0;
+}
+
+
+
 
 #img-wrapper {
     margin-bottom: 0;
-    /* position: relative; */
+     position: relative; 
     white-space: nowrap;
 }
 
