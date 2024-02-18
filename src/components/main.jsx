@@ -28,9 +28,9 @@ const handleTimedButtonClick = () => {
   return (
     <div className={`main-container ${isVisible ? "slide-up" : ""}`}>
     <div
-    id="main-wrapper"
       className="
       container
+      min-vh-100
       d-flex
       justify-content-center
       align-items-center
