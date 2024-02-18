@@ -24,10 +24,8 @@ const Home = () => {
 				{show && <Categorys />}
 			</div>
 			{!show && <MainModule toggleCategories={toggleCategories} />}
-			<div className={`footer-container ${show ? "slide-in" : ""}`}>
-				<Footer />
-			</div>
-		
+			{!show && <Footer />}
+
 		</>
 	);
 };

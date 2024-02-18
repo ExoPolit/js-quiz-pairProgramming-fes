@@ -30,9 +30,9 @@ const Nav = ({ cat }) => {
 	return (
 
 		<div className={`nav-container ${isVisible ? "slide-in" : ""}`}>
-			<nav className="navbar navbar-expand-lg">
+			<nav className="navbar navbar-expand-lg sticky-top">
 				<div
-					className="navbar-container container-fluid fixed-top">
+					className="navbar-container container-fluid">
 					<figure id="img-wrapper">
 						<img
 							src={Banano}
