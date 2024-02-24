@@ -4,6 +4,7 @@ import { auth } from "../firebase/init";
 import Banano from "../assests/Banano.svg";
 import AuthButtons from "../auth/AuthButtons";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Nav = ({ cat }) => {
 	const [user] = useAuthState(auth);
@@ -23,7 +24,7 @@ const Nav = ({ cat }) => {
 			const displayName = user.displayName || user.email[0].toUpperCase();
 			setUserName(displayName);
 		} else {
-			setUserName("Who's knocking?");
+			setUserName("Who is Knocking?");
 		}
 	}, [user]);
 
@@ -41,7 +42,7 @@ const Nav = ({ cat }) => {
 							height={100}
 							id="banano"
 						/>
-						<span className="greet">{userName}</span>
+						<span className="greet"><Link to='/'>Home</Link></span>
 					</figure>
 					<h1 className="nav-title">{cat ? `${cat}` : "BananaScript"}</h1>
 					<div className="" id="btn">
